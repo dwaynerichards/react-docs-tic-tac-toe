@@ -5,6 +5,7 @@ import "./index.css";
 
 class Game extends React.Component {
   //populate state with a react elements coreseontidnt to history
+
   constructor(props) {
     super(props);
     this.state = {
@@ -40,7 +41,7 @@ class Game extends React.Component {
         history: newHistory,
         stepNumber: history.length,
       })
-    ).then((value) => console.log(this.state.history));
+    ).then(() => console.log(this.state.history));
   }
 
   jumpTo(step) {

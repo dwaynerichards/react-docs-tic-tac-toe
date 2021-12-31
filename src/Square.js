@@ -1,9 +1,11 @@
 //import { useState } from "react";
+import Button from "@mui/material/Button";
+
 const Square = (props) => {
   return (
-    <button className="square" onClick={props.onClick}>
+    <Button variant="contained" className="square" onClick={props.onClick}>
       {props.value}
-    </button>
+    </Button>
   );
 };
 

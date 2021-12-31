@@ -4,6 +4,8 @@ import Board from "./Board";
 import calculateWinner from "./calculateWinner";
 import "./index.css";
 import SHA256 from "sha256-es";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
 
 const Game = () => {
   const [player, setPlayer] = useState("X");
@@ -41,9 +43,9 @@ const Game = () => {
     const desc = move ? `Jump To Move ${move}` : `Go To Game Start`;
     const keyHash = SHA256.hash(`move${move}`).toString();
     return (
-      <li key={keyHash}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
-      </li>
+      <List key={keyHash}>
+        <Button onClick={() => jumpTo(move)}>{desc}</Button>
+      </List>
     );
   });
 

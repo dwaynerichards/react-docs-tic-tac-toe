@@ -4,8 +4,11 @@ import Board from "./Board";
 import calculateWinner from "./calculateWinner";
 import "./index.css";
 import SHA256 from "sha256-es";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
+//import Button from "@mui/material/Button";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+//import { FixedSizeList } from "react-window";
 
 const Game = () => {
   const [player, setPlayer] = useState("X");
@@ -43,9 +46,11 @@ const Game = () => {
     const desc = move ? `Jump To Move ${move}` : `Go To Game Start`;
     const keyHash = SHA256.hash(`move${move}`).toString();
     return (
-      <List key={keyHash}>
-        <Button onClick={() => jumpTo(move)}>{desc}</Button>
-      </List>
+      <ListItem key={keyHash} component="div" disablePadding>
+        <ListItemButton onClick={() => jumpTo(move)}>
+          <ListItemText primary={desc}></ListItemText>
+        </ListItemButton>
+      </ListItem>
     );
   });
 
@@ -56,6 +61,7 @@ const Game = () => {
       </div>
       <div className="game-info">
         <div>{status}</div>
+
         <ol>{moves}</ol>
       </div>
     </div>

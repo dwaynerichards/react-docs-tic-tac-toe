@@ -3,7 +3,12 @@ import Button from "@mui/material/Button";
 
 const Square = (props) => {
   return (
-    <Button variant="contained" className="square" onClick={props.onClick}>
+    <Button
+      variant="contained"
+      size="large"
+      className="square"
+      onClick={props.onClick}
+    >
       {props.value}
     </Button>
   );
